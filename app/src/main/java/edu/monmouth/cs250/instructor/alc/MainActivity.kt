@@ -8,6 +8,7 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 
 private val TAG = "ALCMainActivity"
+private val MSG_TEXTVIEW_CONTENTS = "ALCMessageTextViewContents"
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,9 +20,9 @@ class MainActivity : AppCompatActivity() {
 
     fun sendMessage (view: View) {
         Log.d(TAG, "Button Pressed")
-        val msg = message.text
-        print (msg)
-        statusMessage.setText("Message Sent")
+        val msg = statusMessage.text.toString() + "\n" + message.text + " sent\n"
+
+        statusMessage.setText(msg)
     }
 
     // LifeCycle Methods
@@ -34,11 +35,13 @@ class MainActivity : AppCompatActivity() {
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         Log.d(TAG, "onRestoreState")
         super.onRestoreInstanceState(savedInstanceState)
+        statusMessage?.setText (savedInstanceState?.getString(MSG_TEXTVIEW_CONTENTS, ""))
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
         Log.d(TAG, "onSaveInstance")
         super.onSaveInstanceState(outState)
+        outState?.putString (MSG_TEXTVIEW_CONTENTS, statusMessage.text.toString())
     }
 
     override fun onResume() {
