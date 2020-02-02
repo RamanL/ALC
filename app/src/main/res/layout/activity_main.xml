@@ -8,10 +8,13 @@
 
     <TextView
         android:id="@+id/statusMessage"
-        android:layout_width="168dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="24dp"
+        android:layout_width="378dp"
+        android:layout_height="490dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:singleLine="false"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/message" />
 

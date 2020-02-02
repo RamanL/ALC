@@ -1,5 +1,12 @@
 package edu.monmouth.cs250.instructor.alc
 
+/*
+    CS 250 - Android App Development
+    Spring 2020
+    Activitiy Lifecycle Demo Project
+*/
+
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
